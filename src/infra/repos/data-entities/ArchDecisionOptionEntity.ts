@@ -1,7 +1,6 @@
-import { Sequelize, Model, DataTypes, BuildOptions } from 'sequelize';
-import { database } from '../sequelize/database';
 
-export default class ArchDecisionOptionEntity extends Model {
+
+export default class ArchDecisionOptionEntity {
     public id?: number;
     public name?: string;
 }
