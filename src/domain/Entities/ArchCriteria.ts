@@ -1,6 +1,6 @@
 export default class ArchCriteria {
-    private readonly name?: string;
-    private readonly description?: string;
+    public readonly name?: string;
+    public readonly description?: string;
 
     constructor(name: string, description: string) {
         this.name = name;

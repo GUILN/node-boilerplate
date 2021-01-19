@@ -11,5 +11,11 @@
         {"id": 3, "name": "Query Performance", "description": "How fast can we return queries from this DB"},
         {"id": 4, "name": "Model Flexibility", "description": "How flexible with the model the DB lets us be"},
         {"id": 5, "name": "Distributability", "description": "How distributable this DB can be"}
+    ],
+    "guests": [
+        {"name": "Guilherme", "isCreator": true},
+        {"name": "John", "isCreator": false},
+        {"name": "Dominik", "isCreator": false},
+        {"name": "Simeon", "isCreator": false}
     ]
 }

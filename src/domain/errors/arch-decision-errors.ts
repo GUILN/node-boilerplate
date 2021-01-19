@@ -1,2 +1,7 @@
-export class DecisionDoesNotContainThisOptionsError extends Error {}
-export class DecisionDoesNotContainThisCriteriaError extends Error {}
+export class ArchDecisionDomainError extends Error {}
+
+export class ArchDecisionDomainConditionVerificationError extends ArchDecisionDomainError {}
+
+export class DecisionDoesNotContainThisOptionsError extends ArchDecisionDomainConditionVerificationError {}
+export class DecisionDoesNotContainThisCriteriaError extends ArchDecisionDomainConditionVerificationError {}
+export class GuestNotInvitedForThisDecisionError extends ArchDecisionDomainConditionVerificationError {}
