@@ -6,3 +6,5 @@ export class DecisionDoesNotContainThisOptionsError extends ArchDecisionDomainCo
 export class DecisionDoesNotContainThisCriteriaError extends ArchDecisionDomainConditionVerificationError {}
 export class GuestNotInvitedForThisDecisionError extends ArchDecisionDomainConditionVerificationError {}
 export class VoteAlreadyComputedError extends ArchDecisionDomainConditionVerificationError {}
+
+export class ArchDecisionVotingIsntFinishedError extends ArchDecisionDomainConditionVerificationError {}
