@@ -1,6 +1,6 @@
 import ArchDecisionOption from './ArchDecisionOption';
 import ArchCriteria from './ArchCriteria';
-import { DecisionDoesNotContainThisCriteriaError, DecisionDoesNotContainThisOptionsError, GuestNotInvitedForThisDecisionError, VoteAlreadyComputedError } from '../errors/arch-decision-errors';
+import { ArchDecisionVotingIsntFinishedError, DecisionDoesNotContainThisCriteriaError, DecisionDoesNotContainThisOptionsError, GuestNotInvitedForThisDecisionError, VoteAlreadyComputedError } from '../errors/arch-decision-errors';
 import DecisionGuest from './decision-guest';
 
 interface DecisionParameters {
@@ -29,35 +29,59 @@ interface VoteResult {
 export default class ArchDecision {
     public readonly decisionName?: string;
     private readonly decisionParameters: DecisionParameters;
+    private readonly criteriaVoteResultMap: Map<String, VoteResult> = new Map<String, VoteResult>();
     
-    private voteResult: VoteResult;
     private computedVotes: VoteParameter[] = new Array<VoteParameter>();
 
     constructor(decisionName: string,decisionParameters: DecisionParameters) {
         this.decisionName = decisionName;
         this.decisionParameters = decisionParameters;
-        this.voteResult = {isVotingConcluded: false, 
-                            optionsScore: this.decisionParameters.options.map<OptionScore>(opt => ({option: opt, score: 0}))
-                        }
+
+        this.decisionParameters.criterias.forEach(criteria => {
+            this.criteriaVoteResultMap.set(criteria.name, 
+                {isVotingConcluded: false, optionsScore: this.decisionParameters.options.map<OptionScore>(opt => ({option: opt, score: 0}))})
+        });
     }
 
-
-    public vote(voteParameter: VoteParameter): VoteResult {
-        this.executeVotePreConditionVerification(voteParameter);
-        this.executeVote(voteParameter);
+    public computeVote(voteParameter: VoteParameter): void {
+        this.executeComputeVotePreConditionVerification(voteParameter);
         this.computedVotes.push(voteParameter);
-        return this.voteResult;
     }
 
-    executeVote(voteParameter: VoteParameter): VoteResult {
-        this.voteResult.optionsScore = this.voteResult
-                                    .optionsScore
-                                    .map<OptionScore>(optSc => (voteParameter.option.name === optSc.option.name ? {option: optSc.option, score: optSc.score += voteParameter.value} 
-                                                                                                            : {option: optSc.option, score: optSc.score}))
-        return this.voteResult;
+    public countVotes(criteria: ArchCriteria | 'all'='all'): VoteResult {
+        if(criteria === 'all')
+            return this.countVotesForAllCriteria();
+        
+        return this.countVotesForCriterea(criteria);
+    }
+    private countVotesForCriterea(criteria: ArchCriteria): VoteResult {
+        this.executeCountVotesForSpecificCriteriaPreConditionVerification(criteria);
+        const optionsScore: OptionScore[] = this.decisionParameters.options
+                                                        .map(opt => ({option: opt, score: this.getScoreForOptionInCriterea(criteria, opt)}));
+        return {isVotingConcluded: true, optionsScore: optionsScore};
     }
 
-    executeVotePreConditionVerification(voteParameter: VoteParameter): void {
+    private getScoreForOptionInCriterea(criterea: ArchCriteria, option: ArchDecisionOption): number {
+        return this.computedVotes.filter(cp => cp.criteria.name === criterea.name && cp.option.name === option.name)
+                    .reduce<number>((pv, cv) => pv + cv.value,0);
+    }
+
+    private countVotesForAllCriteria(): VoteResult {
+        this.executeCountVotesForAllCriteriaPreConditionVerification();
+        throw new Error('Method not implemented.');
+    }
+
+    private executeCountVotesForSpecificCriteriaPreConditionVerification(criteria: ArchCriteria): void {
+        if(this.computedVotes.filter(vote => vote.criteria.name === criteria.name)?.length < this.decisionParameters.guests.length) {
+            throw new ArchDecisionVotingIsntFinishedError();
+        }
+    }
+
+    private executeCountVotesForAllCriteriaPreConditionVerification(): void {
+        throw new ArchDecisionVotingIsntFinishedError();
+    }
+
+    private executeComputeVotePreConditionVerification(voteParameter: VoteParameter): void {
         if(!this.decisionContainsOption(voteParameter.option))
             throw new DecisionDoesNotContainThisOptionsError();
         else if(!this.decisionContainsCriteria(voteParameter.criteria))
@@ -67,21 +91,21 @@ export default class ArchDecision {
         else if(this.voteAlreadyComputed(voteParameter))
             throw new VoteAlreadyComputedError();
     }
-    voteAlreadyComputed(voteParameter: VoteParameter): boolean {
+    private voteAlreadyComputed(voteParameter: VoteParameter): boolean {
         return this.computedVotes.some(vtParameter => voteParameter.option.name === vtParameter.option.name 
                                                     && voteParameter.criteria.name === vtParameter.criteria.name
                                                     && voteParameter.guest.name === vtParameter.guest.name);
     }
 
-    decisionContainsOption(option: ArchDecisionOption): boolean {
+    private decisionContainsOption(option: ArchDecisionOption): boolean {
         return this.decisionParameters.options.some(opt => opt.name === option.name);
     }
 
-    decisionContainsCriteria(criteria: ArchCriteria): boolean {
+    private decisionContainsCriteria(criteria: ArchCriteria): boolean {
         return this.decisionParameters.criterias.some(ct => ct.name === criteria.name);
     }
 
-    decisionContainsGuest(guest: DecisionGuest): boolean {
+    private decisionContainsGuest(guest: DecisionGuest): boolean {
         return this.decisionParameters.guests.some(gt => gt.name === guest.name);
     }
 }
