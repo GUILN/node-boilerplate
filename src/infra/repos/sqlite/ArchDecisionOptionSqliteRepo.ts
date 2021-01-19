@@ -7,7 +7,7 @@ export default class ArchDecisionOptionSqliteRepo implements ArchDecisionOptionR
 
     getAll(): ArchDecisionOption[] {
         let archDecisionOptions = new Array<ArchDecisionOption>();
-        archDecisionOptions.push({id: 1, name: 'option 1'});
+        archDecisionOptions.push(new ArchDecisionOption("opt 1", "desc"));
         
         return archDecisionOptions;
     }

@@ -1,0 +1,15 @@
+{
+    "decisionName": "Order execution microservice database choice",
+    "options": [
+        {"id": 1, "name": "Relational Database", "description": "SQL like database", "score": 0},
+        {"id": 2, "name": "Row Database", "description": "Cassandra like database", "score": 0},
+        {"id": 3, "name": "Document Database", "description": "MongoDB like database", "score": 0}
+    ],
+    "criterias": [
+        {"id": 1, "name": "Security", "description": "How secure is the database"},
+        {"id": 2, "name": "Data Consistency", "description": "How consistent data can be when stored in this DB"},
+        {"id": 3, "name": "Query Performance", "description": "How fast can we return queries from this DB"},
+        {"id": 4, "name": "Model Flexibility", "description": "How flexible with the model the DB lets us be"},
+        {"id": 5, "name": "Distributability", "description": "How distributable this DB can be"}
+    ]
+}

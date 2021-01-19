@@ -19,11 +19,5 @@ describe('[ArchDecisionOptionRepoTest]', () => {
         expect(sut).to.be.eq(1);
     });
 
-    it('Should Return a list of options at least one with name option 1', () => {
-        const arrArchDecisionOptions = archDecisionOptionRepo.getAll();
-        const names = arrArchDecisionOptions
-                        .reduce<string>((previousStr, currentOp) => previousStr  + currentOp.name, "");
-        expect(names).to.contain("option 1")
-    });
 });
 

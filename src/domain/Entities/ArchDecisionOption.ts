@@ -1,8 +1,11 @@
 export default class ArchDecisionOption {
-    public id?: number;
-    archDecisionId?: number;
-    public name?: string;
-    public description?: string;
+    private readonly name?: string;
+    private readonly description?: string;
 
-    public score?: number;
+    constructor(name: string, description: string){
+        this.name = name;
+        this.description = description;
+    }
+
+    private score?: number;
 }

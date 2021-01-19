@@ -1,6 +1,9 @@
 export default class ArchCriteria {
-    public id?: number;
-    public archDecisionId?: number;
-    public name?: string;
-    public description?: string;
+    private readonly name?: string;
+    private readonly description?: string;
+
+    constructor(name: string, description: string) {
+        this.name = name;
+        this.description = description;
+    }
 }
