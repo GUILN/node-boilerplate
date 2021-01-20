@@ -1,6 +1,6 @@
-import ArchCriteria from "../Entities/ArchCriteria";
-import ArchDecisionOption from "../Entities/ArchDecisionOption";
-import DecisionGuest from "../Entities/decision-guest";
+import ArchCriteria from "../entities/arch-criteria";
+import ArchDecisionOption from "../entities/arch-decision-option";
+import DecisionGuest from "../entities/decision-guest";
 
 export interface DecisionParameters {
     options: Array<ArchDecisionOption>,
@@ -12,7 +12,7 @@ export interface VoteParameter {
     option: ArchDecisionOption,
     criteria: ArchCriteria,
     guest: DecisionGuest,
-    value: number
+    value?: number
 }
 
 export interface OptionScore {

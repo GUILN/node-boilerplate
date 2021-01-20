@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe } from 'mocha';
 
 import { ApplicationContainer } from '../container';
-import ArchDecisionOption from '../domain/Entities/ArchDecisionOption';
+import ArchDecisionOption from '../domain/entities/arch-decision-option';
 
 const archDecisionOptionRepo = ApplicationContainer.reposContainer.archDecisionOptionRepo;
 

@@ -1,5 +1,5 @@
-import ArchCriteria from "../Entities/ArchCriteria";
-import DecisionGuest from "../Entities/decision-guest";
+import ArchCriteria from "../entities/arch-criteria";
+import DecisionGuest from "../entities/decision-guest";
 import { ArchDecisionDomainConditionVerificationError, ArchDecisionVotingIsntFinishedError } from "../errors/arch-decision-errors";
 import { VoteParameter } from "../vos/decision-value-objects";
 import IDomainValidator from "./i-domain-validator";

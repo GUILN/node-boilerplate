@@ -1,5 +1,5 @@
 
-import ArchDecisionOption from '../../../domain/Entities/ArchDecisionOption';
+import ArchDecisionOption from '../../../domain/entities/arch-decision-option';
 import ArchDecisionOptionRepo from '../../../domain/repositories/ArchDecisionOptionRepo';
 //import {openDb} from './SqliteConnetion';
 

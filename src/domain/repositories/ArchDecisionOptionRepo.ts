@@ -1,5 +1,5 @@
 import Repo from './Repo';
-import ArchDecisionOption from '../Entities/ArchDecisionOption';
+import ArchDecisionOption from '../entities/arch-decision-option';
 
 export default interface ArchDecisionOptionRepo extends Repo<ArchDecisionOption> {
     

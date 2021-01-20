@@ -3,16 +3,6 @@ import { ArchDecisionDomainConditionVerificationError, DecisionDoesNotContainThi
 import { DecisionParameters, VoteParameter } from '../vos/decision-value-objects';
 import IDomainValidator from './i-domain-validator';
 
-interface IComputeVotePreconditionValidator {
-    isValid(decisionParameters: DecisionParameters, voteParameter: VoteParameter): boolean;
-    getValidationError(): ArchDecisionDomainConditionVerificationError;
-}
-
-interface IComputedVotesConditionValidator {
-    isValid(computedVotes: VoteParameter[], voteParameter: VoteParameter): boolean;
-    getValidationError(): ArchDecisionDomainConditionVerificationError;
-}
-
 export class DecisionContainsOptionPreConditionValidator implements IDomainValidator {
     private readonly decisionParameters: DecisionParameters;
     private readonly voteParameter: VoteParameter;
@@ -67,8 +57,8 @@ export class VoteAlreadyComputedValidator implements IDomainValidator {
     }
     isValid(): boolean {
         return !this.computedVotes.some(vtParameter => this.voteParameter.option.name === vtParameter.option.name 
-            && this.voteParameter.criteria.name === vtParameter.criteria.name
-            && this.voteParameter.guest.name === vtParameter.guest.name);
+                                                        && this.voteParameter.criteria.name === vtParameter.criteria.name
+                                                        && this.voteParameter.guest.name === vtParameter.guest.name);
     }
     getValidationErrorObject(): ArchDecisionDomainConditionVerificationError {
         return new VoteAlreadyComputedError();

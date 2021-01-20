@@ -1,9 +1,9 @@
 import { expect, assert } from 'chai';
 import { describe } from 'mocha';
-import ArchCriteria from '../../../domain/Entities/ArchCriteria';
-import ArchDecision from '../../../domain/Entities/ArchDecision';
-import ArchDecisionOption from '../../../domain/Entities/ArchDecisionOption';
-import DecisionGuest from '../../../domain/Entities/decision-guest';
+import ArchCriteria from '../../../domain/entities/arch-criteria';
+import ArchDecision from '../../../domain/entities/arch-decision';
+import ArchDecisionOption from '../../../domain/entities/arch-decision-option';
+import DecisionGuest from '../../../domain/entities/decision-guest';
 import { ArchDecisionVotingIsntFinishedError, DecisionDoesNotContainThisCriteriaError, DecisionDoesNotContainThisOptionsError, 
     GuestNotInvitedForThisDecisionError, VoteAlreadyComputedError } from '../../../domain/errors/arch-decision-errors';
 import archDecisionData from '../../fixtures/arch-decision.fixture.json';
@@ -21,8 +21,7 @@ describe("[ArchDecision] - computeVote method", () => {
         assert.throws(() => {
             archDecision.computeVote({option: notContainedOption, 
                                 criteria: someContainedCriterea, 
-                                guest: someContainedGuest,
-                                value: 3});
+                                guest: someContainedGuest});
         }, DecisionDoesNotContainThisOptionsError);
     });
 
@@ -31,8 +30,7 @@ describe("[ArchDecision] - computeVote method", () => {
         assert.throws(() => {
             archDecision.computeVote({option: someContainedOption, 
                 criteria: notContainedCriteria, 
-                guest: someContainedGuest,
-                value: 3});
+                guest: someContainedGuest});
         }, DecisionDoesNotContainThisCriteriaError)
     });
 
@@ -41,8 +39,7 @@ describe("[ArchDecision] - computeVote method", () => {
         assert.throws(() => {
             archDecision.computeVote({option: someContainedOption, 
                 criteria: someContainedCriterea, 
-                guest: notContainedGuest,
-                value: 3});
+                guest: notContainedGuest});
         }, GuestNotInvitedForThisDecisionError)
     });
 
@@ -51,24 +48,22 @@ describe("[ArchDecision] - computeVote method", () => {
         assert.throws(() => {
             archDecision.computeVote({option: someContainedOption, 
                 criteria: someContainedCriterea, 
-                guest: someContainedGuest,
-                value: 8});
+                guest: someContainedGuest});
 
             archDecision.computeVote({option: someContainedOption, 
                     criteria: someContainedCriterea, 
-                    guest: someContainedGuest,
-                    value: 5});
+                    guest: someContainedGuest});
         }, VoteAlreadyComputedError)
     })
 });
 
-describe("[Arch Decision] - countVote method - for specific criterea", () => {
+describe("[Arch Decision] - countVotesForCriteria method - for specific criterea", () => {
 
     archDecision = createArchDecisionObjectFromFixtureData(archDecisionData);
 
     it("Should throw error if ArchDecision voting is not finished yet (Not all guests have voted) ArchDecisionVotingIsntFinishedError", () => {
         assert.throws(() => {
-            archDecision.countVotes(someContainedCriterea);
+            archDecision.countVotesForCriteria(someContainedCriterea);
         }, ArchDecisionVotingIsntFinishedError)
     });
 
@@ -76,14 +71,12 @@ describe("[Arch Decision] - countVote method - for specific criterea", () => {
         let expectedVotingScore = 0;
         archDecisionData.guests.forEach(guestFixtureData => {
             archDecision.computeVote({option: someContainedOption, criteria: someContainedCriterea,
-                                 guest: createDecisionGuestFromFixtureData(guestFixtureData),
-                                 value: 2});
+                                 guest: createDecisionGuestFromFixtureData(guestFixtureData)});
             expectedVotingScore += 2;
         });
 
-        const voteResult = archDecision.countVotes(someContainedCriterea);
+        const voteResult = archDecision.countVotesForCriteria(someContainedCriterea);
         let optionScoreForCriteria = voteResult.optionsScore.filter(vtResult => vtResult.option.name === someContainedOption.name)[0].score;
         expect(optionScoreForCriteria).equal(expectedVotingScore);
     });
-
 });
