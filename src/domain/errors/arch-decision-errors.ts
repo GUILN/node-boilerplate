@@ -8,3 +8,6 @@ export class GuestNotInvitedForThisDecisionError extends ArchDecisionDomainCondi
 export class VoteAlreadyComputedError extends ArchDecisionDomainConditionVerificationError {}
 
 export class ArchDecisionVotingIsntFinishedError extends ArchDecisionDomainConditionVerificationError {}
+
+export class ArchDecisionRepeatedParameterError extends ArchDecisionDomainConditionVerificationError {};
+export class ArchDecisionMoreThanOneCreatorGuestError extends ArchDecisionDomainConditionVerificationError {};

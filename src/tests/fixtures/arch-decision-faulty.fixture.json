@@ -1,0 +1,21 @@
+{
+    "repeated_options":  [
+        {"id": 1, "name": "Relational Database", "description": "SQL like database", "score": 0},
+        {"id": 3, "name": "Document Database", "description": "MongoDB like database", "score": 0},
+        {"id": 3, "name": "Document Database", "description": "MongoDB like database", "score": 0}
+    ],
+    "repeated_criterias": [
+        {"id": 1, "name": "Security", "description": "How secure is the database"},
+        {"id": 5, "name": "Distributability", "description": "How distributable this DB can be"},
+        {"id": 5, "name": "Distributability", "description": "How distributable this DB can be"}
+    ],
+    "repeated_guests": [
+        {"name": "Guilherme", "isCreator": true},
+        {"name": "John", "isCreator": false},
+        {"name": "John", "isCreator": false}
+    ],
+    "more_than_one_guest_is_creator": [
+        {"name": "Guilherme", "isCreator": true},
+        {"name": "John", "isCreator": true}
+    ]
+}
