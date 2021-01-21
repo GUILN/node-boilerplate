@@ -2,6 +2,7 @@ import ArchCriteria from "../entities/arch-criteria";
 import ArchDecisionOption from "../entities/arch-decision-option";
 import DecisionGuest from "../entities/decision-guest";
 
+
 export interface DecisionParameters {
     options: Array<ArchDecisionOption>,
     criterias: Array<ArchCriteria>,

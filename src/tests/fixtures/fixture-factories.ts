@@ -1,7 +1,8 @@
-import ArchDecision from '../../domain/entities/arch-decision';
-import ArchDecisionOption from '../../domain/entities/arch-decision-option';
-import ArchCriteria from '../../domain/entities/arch-criteria';
-import DecisionGuest from '../../domain/entities/decision-guest';
+import ArchCriteria from "../../domain/entities/arch-criteria";
+import ArchDecision from "../../domain/entities/arch-decision";
+import ArchDecisionOption from "../../domain/entities/arch-decision-option";
+import DecisionGuest from "../../domain/entities/decision-guest";
+
 
 interface optionFixtureData {
     name: string,

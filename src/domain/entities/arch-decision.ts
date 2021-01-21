@@ -31,7 +31,6 @@ export default class ArchDecision {
 
     public countVotesForCriteria(criteria: ArchCriteria): VoteResult {
         executeAllArchDecisionCountVotePreconditionValidationThrowingErrors(this.computedVotes, this.decisionParameters.guests, criteria);
-        this.voteCounter.countVotesForCriteria(this.computedVotes, criteria);
-        throw Error("Not Implemented countVotesForCriterea");
+        return this.voteCounter.countVotesForCriteria(this.decisionParameters,this.computedVotes, criteria);
     }
 }

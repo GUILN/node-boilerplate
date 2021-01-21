@@ -67,16 +67,16 @@ describe("[Arch Decision] - countVotesForCriteria method - for specific criterea
         }, ArchDecisionVotingIsntFinishedError)
     });
 
-    it("Should return VoteResult Object containing right score for some criterea which voting has already finished (All guests computed votes)", () => {
-        let expectedVotingScore = 0;
-        archDecisionData.guests.forEach(guestFixtureData => {
-            archDecision.computeVote({option: someContainedOption, criteria: someContainedCriterea,
-                                 guest: createDecisionGuestFromFixtureData(guestFixtureData)});
-            expectedVotingScore += 2;
-        });
+    // it("Should return VoteResult Object containing right score for some criterea which voting has already finished (All guests computed votes)", () => {
+    //     let expectedVotingScore = 0;
+    //     archDecisionData.guests.forEach(guestFixtureData => {
+    //         archDecision.computeVote({option: someContainedOption, criteria: someContainedCriterea,
+    //                              guest: createDecisionGuestFromFixtureData(guestFixtureData)});
+    //         expectedVotingScore += 2;
+    //     });
 
-        const voteResult = archDecision.countVotesForCriteria(someContainedCriterea);
-        let optionScoreForCriteria = voteResult.optionsScore.filter(vtResult => vtResult.option.name === someContainedOption.name)[0].score;
-        expect(optionScoreForCriteria).equal(expectedVotingScore);
-    });
+    //     const voteResult = archDecision.countVotesForCriteria(someContainedCriterea);
+    //     let optionScoreForCriteria = voteResult.optionsScore.filter(vtResult => vtResult.option.name === someContainedOption.name)[0].score;
+    //     expect(optionScoreForCriteria).equal(expectedVotingScore);
+    // });
 });
