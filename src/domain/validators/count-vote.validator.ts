@@ -16,7 +16,8 @@ export class CriteriaVoteHasFinishedValidator implements IDomainValidator {
     }
 
     isValid(): boolean {
-        return this.computedVotes.filter(vote => vote.criteria.name === this.criteria.name)?.length == this.guests.length;    
+        const totalVotesForCriteria = this.computedVotes.filter(vote => vote.criteria.name === this.criteria.name)?.length;
+        return totalVotesForCriteria === this.guests.length;    
     }
     getValidationErrorObject(): ArchDecisionDomainConditionVerificationError {
         return new ArchDecisionVotingIsntFinishedError();
@@ -36,7 +37,10 @@ export const executeAllArchDecisionCountVotePreconditionValidationThrowingErrors
                                                                                     criteria: ArchCriteria): void => {
     const validators: Array<IDomainValidator> = createAllVotePreconditionValidators(computedVotes, guests, criteria);
     validators.forEach(validator => {
-        if(!validator.isValid())
-            throw validator.getValidationErrorObject();
+        if(!validator.isValid()){
+            const errorObject: ArchDecisionDomainConditionVerificationError = validator.getValidationErrorObject();
+            throw errorObject;
+        }
+            
     });
 }
