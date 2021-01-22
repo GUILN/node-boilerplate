@@ -37,9 +37,10 @@ const moreThanOneCreatorGuestDecisionParameter: DecisionParameters = {
 };
 
 describe("[ArchDecisionFactory] - createArchDecision method", () => {
+    
     it("Should throw error when trying to create arch decision with repeated criteria", () => {
         assert.throws(() => {
-
+            
             ArchDecisionFactory.createArchDecision(archDecisionNonFaultedData.decisionName,repeatedCriteriaDecisionParameter);
 
         }, ArchDecisionRepeatedParameterError);

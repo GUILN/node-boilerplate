@@ -1,6 +1,7 @@
 import ArchDecision from "../entities/arch-decision";
 import IVoteCounter, { VoteCounterType } from "../entities/vote-counters/i-vote-counter";
 import VoteCounter from "../entities/vote-counters/vote-counter";
+import { ArchDecisionRepeatedParameterError } from "../errors/arch-decision-errors";
 import { executeAllArchDecisionCreateValidationsThrowingError } from "../validators/create-arch-decision.validator";
 import { DecisionParameters } from "../vos/decision-value-objects";
 

@@ -16,6 +16,10 @@
     ],
     "more_than_one_guest_is_creator": [
         {"name": "Guilherme", "isCreator": true},
-        {"name": "John", "isCreator": true}
+        {"name": "John", "isCreator": false},
+        {"name": "Dominik", "isCreator": false},
+        {"name": "Simeon", "isCreator": false},
+        {"name": "Anastasia", "isCreator": true},
+        {"name": "Sebastian", "isCreator": false}
     ]
 }
