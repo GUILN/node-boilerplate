@@ -20,7 +20,6 @@ export class DecisionParameterRepeatedParameterValidator implements IDomainValid
     }
 
     private hasRepeatedCriterias(): boolean {
-        console.log(`Criterias in hasRepeatedCriterias Method: ${JSON.stringify(this.decisionParameters.criterias)}`)
         return ArrayHasRepeatedItem<ArchCriteria>(this.decisionParameters.criterias, (ctr) => ctr.name.trim().toUpperCase());
     }
     private hasRepeatedOptions(): boolean {

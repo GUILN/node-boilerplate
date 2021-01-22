@@ -8,6 +8,11 @@ interface ArchDecisionQueryParameters {
 }
 
 export default class ArchDecisionApplicationService {
+
+    constructor() {
+        
+    }
+
     createArchDecision(decisionName: string, decisionParameters: DecisionParameters): ArchDecision {
         throw Error("Not Implemented");
     }

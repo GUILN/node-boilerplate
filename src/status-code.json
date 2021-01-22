@@ -1,0 +1,304 @@
+{
+  
+    "100":{
+       "StatusCode":"100",
+       "Description":"Continue",
+       "ApplicationMeaning":""
+    },
+    "101":{
+       "StatusCode":"101",
+       "Description":"Switching Protocol",
+       "ApplicationMeaning":""
+    },
+    "102":{
+       "StatusCode":"102",
+       "Description":"Processing",
+       "ApplicationMeaning":""
+    },
+    "103":{
+       "StatusCode":"103",
+       "Description":"Early Hints",
+       "ApplicationMeaning":""
+    },
+    "200":{
+       "StatusCode":"200",
+       "Description":"OK",
+       "ApplicationMeaning":""
+    },
+    "201":{
+       "StatusCode":"201",
+       "Description":"Created",
+       "ApplicationMeaning":""
+    },
+    "202":{
+       "StatusCode":"202",
+       "Description":"Accepted",
+       "ApplicationMeaning":""
+    },
+    "203":{
+       "StatusCode":"203",
+       "Description":"Non-Authoritative Information",
+       "ApplicationMeaning":""
+    },
+    "204":{
+       "StatusCode":"204",
+       "Description":"No Content",
+       "ApplicationMeaning":""
+    },
+    "205":{
+       "StatusCode":"205",
+       "Description":"Reset Content",
+       "ApplicationMeaning":""
+    },
+    "206":{
+       "StatusCode":"206",
+       "Description":"Partial Content",
+       "ApplicationMeaning":""
+    },
+    "207":{
+       "StatusCode":"207",
+       "Description":"Multi-Status",
+       "ApplicationMeaning":""
+    },
+    "208":{
+       "StatusCode":"208",
+       "Description":"Already Reported",
+       "ApplicationMeaning":""
+    },
+    "226":{
+       "StatusCode":"226",
+       "Description":"IM Used",
+       "ApplicationMeaning":""
+    },
+    "300":{
+       "StatusCode":"300",
+       "Description":"Multiple Choice",
+       "ApplicationMeaning":""
+    },
+    "301":{
+       "StatusCode":"301",
+       "Description":"Moved Permanently",
+       "ApplicationMeaning":""
+    },
+    "302":{
+       "StatusCode":"302",
+       "Description":"Found",
+       "ApplicationMeaning":""
+    },
+    "303":{
+       "StatusCode":"303",
+       "Description":"See Other",
+       "ApplicationMeaning":""
+    },
+    "304":{
+       "StatusCode":"304",
+       "Description":"Not Modified",
+       "ApplicationMeaning":""
+    },
+    "307":{
+       "StatusCode":"307",
+       "Description":"Temporary Redirect",
+       "ApplicationMeaning":""
+    },
+    "308":{
+       "StatusCode":"308",
+       "Description":"Permanent Redirect",
+       "ApplicationMeaning":""
+    },
+    "400":{
+       "StatusCode":"400",
+       "Description":"Bad Request",
+       "ApplicationMeaning":""
+    },
+    "401":{
+       "StatusCode":"401",
+       "Description":"Unauthorized",
+       "ApplicationMeaning":""
+    },
+    "402":{
+       "StatusCode":"402",
+       "Description":"Payment Required",
+       "ApplicationMeaning":""
+    },
+    "403":{
+       "StatusCode":"403",
+       "Description":"Forbidden",
+       "ApplicationMeaning":""
+    },
+    "404":{
+       "StatusCode":"404",
+       "Description":"Not Found",
+       "ApplicationMeaning":""
+    },
+    "405":{
+       "StatusCode":"405",
+       "Description":"Method Not Allowed",
+       "ApplicationMeaning":""
+    },
+    "406":{
+       "StatusCode":"406",
+       "Description":"Not Acceptable",
+       "ApplicationMeaning":""
+    },
+    "407":{
+       "StatusCode":"407",
+       "Description":"Proxy Authentication Required",
+       "ApplicationMeaning":""
+    },
+    "408":{
+       "StatusCode":"408",
+       "Description":"Request Timeout",
+       "ApplicationMeaning":""
+    },
+    "409":{
+       "StatusCode":"409",
+       "Description":"Conflict",
+       "ApplicationMeaning":""
+    },
+    "410":{
+       "StatusCode":"410",
+       "Description":"Gone",
+       "ApplicationMeaning":""
+    },
+    "411":{
+       "StatusCode":"411",
+       "Description":"Length Required",
+       "ApplicationMeaning":""
+    },
+    "412":{
+       "StatusCode":"412",
+       "Description":"Precondition Failed",
+       "ApplicationMeaning":""
+    },
+    "413":{
+       "StatusCode":"413",
+       "Description":"Payload Too Large",
+       "ApplicationMeaning":""
+    },
+    "414":{
+       "StatusCode":"414",
+       "Description":"URI Too Long",
+       "ApplicationMeaning":""
+    },
+    "415":{
+       "StatusCode":"415",
+       "Description":"Unsupported Media Type",
+       "ApplicationMeaning":""
+    },
+    "416":{
+       "StatusCode":"416",
+       "Description":"Range Not Satisfiable",
+       "ApplicationMeaning":""
+    },
+    "417":{
+       "StatusCode":"417",
+       "Description":"Expectation Failed",
+       "ApplicationMeaning":""
+    },
+    "421":{
+       "StatusCode":"421",
+       "Description":"Misdirected Request",
+       "ApplicationMeaning":""
+    },
+    "422":{
+       "StatusCode":"422",
+       "Description":"Unprocessable Entity",
+       "ApplicationMeaning":""
+    },
+    "423":{
+       "StatusCode":"423",
+       "Description":"Locked",
+       "ApplicationMeaning":""
+    },
+    "424":{
+       "StatusCode":"424",
+       "Description":"Failed Dependency",
+       "ApplicationMeaning":""
+    },
+    "425":{
+       "StatusCode":"425",
+       "Description":"Too Early",
+       "ApplicationMeaning":""
+    },
+    "426":{
+       "StatusCode":"426",
+       "Description":"Upgrade Required",
+       "ApplicationMeaning":""
+    },
+    "428":{
+       "StatusCode":"428",
+       "Description":"Precondition Required",
+       "ApplicationMeaning":""
+    },
+    "429":{
+       "StatusCode":"429",
+       "Description":"Too Many Requests",
+       "ApplicationMeaning":""
+    },
+    "431":{
+       "StatusCode":"431",
+       "Description":"Request Header Fields Too Large",
+       "ApplicationMeaning":""
+    },
+    "451":{
+       "StatusCode":"451",
+       "Description":"Unavailable For Legal Reasons",
+       "ApplicationMeaning":""
+    },
+    "500":{
+       "StatusCode":"500",
+       "Description":"Internal Server Error",
+       "ApplicationMeaning":""
+    },
+    "501":{
+       "StatusCode":"501",
+       "Description":"Not Implemented",
+       "ApplicationMeaning":""
+    },
+    "502":{
+       "StatusCode":"502",
+       "Description":"Bad Gateway",
+       "ApplicationMeaning":""
+    },
+    "503":{
+       "StatusCode":"503",
+       "Description":"Service Unavailable",
+       "ApplicationMeaning":""
+    },
+    "504":{
+       "StatusCode":"504",
+       "Description":"Gateway Timeout",
+       "ApplicationMeaning":""
+    },
+    "505":{
+       "StatusCode":"505",
+       "Description":"HTTP Version Not Supported",
+       "ApplicationMeaning":""
+    },
+    "506":{
+       "StatusCode":"506",
+       "Description":"Variant Also Negotiates",
+       "ApplicationMeaning":""
+    },
+    "507":{
+       "StatusCode":"507",
+       "Description":"Insufficient Storage",
+       "ApplicationMeaning":""
+    },
+    "508":{
+       "StatusCode":"508",
+       "Description":"Loop Detected",
+       "ApplicationMeaning":""
+    },
+    "510":{
+       "StatusCode":"510",
+       "Description":"Not Extended",
+       "ApplicationMeaning":""
+    },
+    "511":{
+       "StatusCode":"511",
+       "Description":"Network Authentication Required",
+       "ApplicationMeaning":""
+    }
+ }
+}

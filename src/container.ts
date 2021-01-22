@@ -1,6 +1,6 @@
 
 import {SqliteReposContainer} from './infra/repos/sqlite/SqliteReposContainer';
-import {ReposContainer} from './domain/repositories/ReposContainer';
+import {ReposContainer} from './domain/repositories/repos-container';
 import { environment, config } from './config';
 
 interface IApplicationContainer {
