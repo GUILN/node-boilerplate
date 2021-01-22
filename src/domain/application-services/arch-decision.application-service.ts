@@ -1,4 +1,5 @@
 import ArchDecision from "../entities/arch-decision";
+import ArchDecisionRepo from "../repositories/arch-decision.repo";
 import { DecisionParameters } from "../vos/decision-value-objects";
 
 interface ArchDecisionQueryParameters {
@@ -9,8 +10,9 @@ interface ArchDecisionQueryParameters {
 
 export default class ArchDecisionApplicationService {
 
-    constructor() {
-        
+    private readonly archDecisionRepo: ArchDecisionRepo;
+    constructor(archDecisionRepo: ArchDecisionRepo) {
+        this.archDecisionRepo = archDecisionRepo;
     }
 
     createArchDecision(decisionName: string, decisionParameters: DecisionParameters): ArchDecision {

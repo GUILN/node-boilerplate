@@ -1,7 +1,7 @@
 import { desc, description, request, summary, tagsAll } from "koa-swagger-decorator";
 import { Context, query } from "koa-swagger-decorator/dist";
-import ArchDecisionOptionRepo from "../domain/repositories/ArchDecisionOptionRepo";
-import ArchDecisionOptionSqliteRepo from '../infra/repos/sqlite/ArchDecisionOptionSqliteRepo';
+import ArchDecisionOptionRepo from "../domain/repositories/arch-decision-option.repo";
+import ArchDecisionOptionSqliteRepo from '../infra/repos/sqlite/arch-decision-option-sqlite.repo';
 
 @tagsAll(["DecisionController"])
 export default class DecisionController {

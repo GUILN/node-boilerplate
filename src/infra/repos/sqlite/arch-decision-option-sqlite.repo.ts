@@ -1,6 +1,6 @@
 
 import ArchDecisionOption from '../../../domain/entities/arch-decision-option';
-import ArchDecisionOptionRepo from '../../../domain/repositories/ArchDecisionOptionRepo';
+import ArchDecisionOptionRepo from '../../../domain/repositories/arch-decision-option.repo';
 //import {openDb} from './SqliteConnetion';
 
 export default class ArchDecisionOptionSqliteRepo implements ArchDecisionOptionRepo {
